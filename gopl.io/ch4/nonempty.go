@@ -14,9 +14,25 @@ func nonempty(strings []string) []string {
 	return strings[:i]
 }
 
+func nonempty2(strings []string) []string {
+	out := strings[:0]
+	for _, s := range strings {
+		if s != "" {
+			out = append(out, s)
+		}
+	}
+
+	return out
+}
+
+
 func main() {
 	data := []string{"one", "", "three"}
 
 	fmt.Printf("%q\n", nonempty(data))
 	fmt.Printf("%q\n", data)
+
+	data2 := []string{"one", "", "3"}
+	fmt.Printf("%q\n", nonempty2(data2))
+	fmt.Printf("%q\n", data2)
 }
