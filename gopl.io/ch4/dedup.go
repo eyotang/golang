@@ -22,7 +22,8 @@ func main() {
 	var rank = make(map[string]int)
 
 	people := [...]string{"kris", "lily"}
-	fmt.Printf("before: %d\n", Count(rank, people[:]))
+	fmt.Printf("Operation for: %s\n", k(people[:]))
+	fmt.Printf("Before: %d\n", Count(rank, people[:]))
 	Add(rank, people[:])
 	fmt.Printf("After: %d\n", Count(rank, people[:]))
 
