@@ -25,27 +25,27 @@ func main() {
 	fmt.Printf("%d issues:\n", result.TotalCount)
 	for _, item := range result.Items {
 		if item.CreatedAt.After(t.Add(-ONE_MONTH)) {
-			append(monthIssues, item)
+			monthIssues = append(monthIssues, item)
 		} else if item.CreatedAt.After(t.Add(-ONE_YEAR)) && item.CreatedAt.Before(t.Add(-ONE_MONTH)) {
-			append(yearIssues, item)
+			yearIssues = append(yearIssues, item)
 		} else {
-			append(olderIssues, item)
+			olderIssues = append(olderIssues, item)
 		}
 	}
 
-	fmt.Println("Create less then one month:")
+	fmt.Println("\nCreate less then 1 month:")
 	for _, monthItem := range monthIssues {
 		fmt.Printf("#%-5d %9.9s %.55s\n",
 			monthItem.Number, monthItem.User.Login, monthItem.Title)
 	}
 
-	fmt.Println("Create less then one year:")
+	fmt.Println("\nCreate less then 1 year:")
 	for _, yearItem := range yearIssues {
 		fmt.Printf("#%-5d %9.9s %.55s\n",
 			yearItem.Number, yearItem.User.Login, yearItem.Title)
 	}
 
-	fmt.Println("Create more then one year:")
+	fmt.Println("\nCreate more then 1 year:")
 	for _, olderItem := range olderIssues {
 		fmt.Printf("#%-5d %9.9s %.55s\n",
 			olderItem.Number, olderItem.User.Login, olderItem.Title)
